@@ -1,15 +1,25 @@
-import React, { useContext } from 'react'
-import sidebarContext from '../context/sidebarContext'
+import { useSelector } from "react-redux"
+import MenuTile from "./MenuTile"
+import {MdHomeFilled,MdOutlineSubscriptions,MdOutlineVideoLibrary} from 'react-icons/md'
+import {BsPlayCircle} from 'react-icons/bs'
+import {GoHistory} from 'react-icons/go'
 
 function Sidebar() {
-  const isVisible = useContext(sidebarContext)
-  return isVisible.isVisible&&(
-    <div className='bg-gray-50 flex flex-col w-52 p-3'>
-    <span className='font-bold'>Home</span>
-    <span className='font-bold'>Short</span>
-    <span className='font-bold'>Subscription</span>
-    <hr />
-    <span className='font-bold'>Library</span>
+  const isMenuEnabled = useSelector(store=>store.appConfig.isMenuEnabled)
+  return isMenuEnabled&&(
+    <div className="shadow w-[240px] px-3 gap-2 flex flex-col pt-[10px]">
+      <MenuTile icon={<MdHomeFilled size={25} color="gray"/>} title={"Home"}/>
+      <MenuTile icon={<BsPlayCircle size={25} color="gray"/>} title={"Shorts"}/>
+      <MenuTile icon={<MdOutlineSubscriptions size={25} color="gray"/>} title={"Subscription"}/>
+      <hr />
+      <MenuTile title={"Library"} icon={<MdOutlineVideoLibrary size={25} color="gray"/>}/>
+      <MenuTile title={"History"} icon={<GoHistory size={25} color="gray"/>}/>
+      <MenuTile title={"Your videos"}/>
+      <MenuTile title={"Watch Later"}/>
+      <MenuTile title={"Your clips"}/>
+      <MenuTile title={"Show more"}/>
+      <hr />
+      <MenuTile/>
     </div>
   )
 }
