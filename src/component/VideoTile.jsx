@@ -2,7 +2,7 @@ import React from "react";
 
 function VideoTile({ item }) {
   return (
-    <a href="#">
+    <a href="/">
       <div className="m-2 w-[400px] rounded">
         <img
           className="rounded-md w-full"
