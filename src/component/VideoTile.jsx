@@ -1,8 +1,9 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 function VideoTile({ item }) {
   return (
-    <a href="/">
+    <Link to="/video">
       <div className="m-2 w-[400px] rounded">
         <img
           className="rounded-md w-full"
@@ -12,7 +13,7 @@ function VideoTile({ item }) {
         <h1 className="font-medium">{item.snippet.title}</h1>
         <p>{item.snippet.channelTitle}</p>
       </div>
-    </a>
+    </Link>
   );
 }
 

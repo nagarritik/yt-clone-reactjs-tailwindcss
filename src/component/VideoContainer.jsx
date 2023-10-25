@@ -14,7 +14,7 @@ function VideoContainer() {
     const response = await fetch(url);
     const result = await response.json();
     setVideoResult(result.items);
-    console.log(result.items);
+    console.log(result.items[0]);
   };
 
   return (
