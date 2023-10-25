@@ -3,8 +3,8 @@ import { Link } from "react-router-dom";
 
 function VideoTile({ item }) {
   return (
-    <Link to="/video">
-      <div className="m-2 w-[400px] rounded">
+    <Link to={`/video/${item.id}`}>
+      <div className="m-2 w-full rounded">
         <img
           className="rounded-md w-full"
           src={item.snippet.thumbnails.medium.url}

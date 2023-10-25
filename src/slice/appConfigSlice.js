@@ -9,8 +9,11 @@ const appConfigSlice = createSlice({
     flagMenu: (state) => {
       state.isMenuEnabled = !state.isMenuEnabled;
     },
+    hideMenu:(state)=>{
+      state.isMenuEnabled=false;
+    }
   },
 });
 
 export default appConfigSlice.reducer;
-export const { flagMenu } = appConfigSlice.actions;
+export const { flagMenu,hideMenu } = appConfigSlice.actions;

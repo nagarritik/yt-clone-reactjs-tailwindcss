@@ -1,7 +1,10 @@
 import React, { useEffect, useState } from "react";
 import VideoTile from "./VideoTile";
+import { useSelector } from "react-redux";
 
 function VideoContainer() {
+  const isMenuEnabled = useSelector(slice=>slice.appConfig.isMenuEnabled)
+  console.log(isMenuEnabled);
   const [videoResult, setVideoResult] = useState([]);
 
   useEffect(() => {
@@ -14,11 +17,10 @@ function VideoContainer() {
     const response = await fetch(url);
     const result = await response.json();
     setVideoResult(result.items);
-    console.log(result.items[0]);
   };
 
   return (
-    <div className="grid grid-cols-3 gap-2">
+    <div className={`grid ${isMenuEnabled?"grid-cols-3":"grid-cols-4"} gap-2`}>
       {videoResult.map((item) => {
         return <VideoTile item={item} />;
       })}
